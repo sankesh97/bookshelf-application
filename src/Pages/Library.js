@@ -31,6 +31,20 @@ const Library = () => {
                 SetSearchKeyword(event.target.value);
               }}
             />
+            <p className='my-2'>
+              Note: Please select the state before adding the book to your shelf
+              i.e{' '}
+            </p>
+            <p className='my-2'>
+              1. <strong>'Currently Reading'</strong> - If you will be reading
+              it now.
+              <br />
+              2. <strong>'Want to Read'</strong> - If you would like to read it,
+              but later.
+              <br />
+              3. <strong>'Read'</strong> - If you have already read the book,
+              and want to keep as a memory that you have read it.
+            </p>
           </div>
         </div>
       </div>
