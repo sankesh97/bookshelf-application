@@ -5,6 +5,7 @@ export const BooksContext = createContext();
 
 export const BooksProvider = ({ children }) => {
   const [BooksList, setBooksList] = useState(booksDB);
+  const [bookShelf, setBookShelf] = useState([]);
   const statusList = ['Currently Reading', 'Want to Read', 'Read', 'None'];
 
   const statusChangeHandler = (event, title) => {
@@ -20,11 +21,29 @@ export const BooksProvider = ({ children }) => {
         []
       );
     });
+    setBookShelf((prevState) => {
+      return prevState.reduce(
+        (allBooks, currentBook) =>
+          currentBook.title === title
+            ? [
+                ...allBooks,
+                { ...currentBook, current_state: event.target.value },
+              ]
+            : [...allBooks, currentBook],
+        []
+      );
+    });
   };
 
   return (
     <BooksContext.Provider
-      value={{ BooksList, statusList, statusChangeHandler }}
+      value={{
+        BooksList,
+        statusList,
+        statusChangeHandler,
+        bookShelf,
+        setBookShelf,
+      }}
     >
       {children}
     </BooksContext.Provider>

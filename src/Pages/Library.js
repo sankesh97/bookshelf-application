@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 import { BooksContext } from '../Context/BooksContext';
 
 const Library = () => {
-  const { BooksList, statusList, statusChangeHandler } =
+  const { BooksList, statusList, statusChangeHandler, setBookShelf } =
     useContext(BooksContext);
   const [searchKeyword, SetSearchKeyword] = useState();
 
@@ -65,6 +65,14 @@ const Library = () => {
                       </option>
                     ))}
                   </select>
+                  <button
+                    className='my-2 w-100 btn btn-primary'
+                    onClick={() => {
+                      setBookShelf((prevState) => [...prevState, book]);
+                    }}
+                  >
+                    Add to Bookshelf
+                  </button>
                 </div>
               </div>
             </div>
