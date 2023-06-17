@@ -12,14 +12,14 @@ const Library = () => {
       <div className='d-md-flex justify-content-between'>
         <div className='order-md-2 text-center text-md-end'>
           <NavLink style={{ textDecoration: 'none' }} to='/'>
-            <button className='btn btn-primary'>Go Back to Main Page</button>
+            <button className='btn btn-primary'>Go to Main Page</button>
           </NavLink>
         </div>
         <div className='order-md-1 text-center text-md-start'>
           <h2>Library of Books</h2>
           <div className='mb-3'>
             <label htmlFor='searchBooksInput' className='form-label'>
-              Search for the book you are looking for
+              Search for the book you are looking with title or author
             </label>
             <input
               type='text'
@@ -37,11 +37,12 @@ const Library = () => {
       <div className='row g-5 p-5'>
         {BooksList.filter((book) =>
           searchKeyword
-            ? book.title.toLowerCase().includes(searchKeyword)
+            ? book.title.toLowerCase().includes(searchKeyword) ||
+              book.author.toLowerCase().includes(searchKeyword)
             : true
         ).map((book) => {
           return (
-            <div key={book.title} className='col-md-3 col-sm-6'>
+            <div key={book.title} className='col-md-3 col-sm-6 col-xs-6'>
               <div className='card'>
                 <img
                   src={book.image_link}

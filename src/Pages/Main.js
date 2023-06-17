@@ -11,7 +11,7 @@ const Main = () => {
         <div className='order-md-2 text-center text-md-end'>
           <NavLink style={{ textDecoration: 'none' }} to='/search'>
             <button className='btn btn-primary'>
-              Go Back to Search / Library Page
+              Go to Search / Library Page
             </button>
           </NavLink>
         </div>
